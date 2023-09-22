@@ -14,12 +14,28 @@ const images = [
 ];
 
 const list = document.querySelector(".gallery");
+list.style.listStyleType = "none";
+list.style.display = "flex";
+list.style.gap = "24px";
+
 const gallery = images
   .map(
     ({ url, alt }) => `
     <li class="gallery-item">
-      <img src="${url}" alt="${alt}" width="360" height="360">
+      <img src="${url}" alt="${alt}">
     </li>`
   )
   .join("");
 list.insertAdjacentHTML("afterbegin", gallery);
+
+const galleryItems = document.querySelectorAll(".gallery-item");
+const galleryImages = document.querySelectorAll(".gallery-item img");
+
+galleryItems.forEach((item) => {
+  item.style.width = "calc(100% - 48px) / 3";
+});
+
+galleryImages.forEach((image) => {
+  image.style.maxWidth = "100%";
+  image.style.height = "auto";
+});
