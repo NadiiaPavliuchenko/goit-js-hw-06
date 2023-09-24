@@ -9,4 +9,4 @@ const getName = () => {
   }
 };
 
-input.addEventListener("change", getName);
+input.addEventListener("input", getName);
